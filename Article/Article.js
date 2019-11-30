@@ -1,7 +1,6 @@
 /* This is the data we will be using to create our article components */
 /* Look over this data, then proceed to line 91*/
-const data = [
-  {
+const data = [{
     title: 'Lambda School Students: "We\'re the best!"',
     date: 'Nov 5th, 2018',
     firstParagraph: `Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
@@ -85,6 +84,19 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Matt\'s Input',
+    date: 'November 27th, 2019',
+    firstParagraph: `Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt`,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR, 
+          Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt, 
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt Matt`
   }
 ];
 
@@ -112,3 +124,66 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+let componentCreator = (t, d, p1, p2, p3) => {
+  // ** create html structure 
+  let div = document.createElement("div");
+  let title = document.createElement("h2");
+  let date = document.createElement("p");
+  let paragraph1 = document.createElement("p");
+  let paragraph2 = document.createElement("p");
+  let paragraph3 = document.createElement("p");
+  // ? Span for button 
+  let button = document.createElement("button");
+  // ** create class names
+  div.classList.add('article');
+  title.classList.add("title")
+  date.classList.add("date");
+  paragraph1.classList.add("p1");
+  paragraph2.classList.add("p2");
+  paragraph3.classList.add("p3");
+  button.classList.add("expandButton")
+  // ** append elements
+  div.appendChild(title);
+  div.appendChild(date);
+  div.appendChild(paragraph1);
+  div.appendChild(paragraph2);
+  div.appendChild(paragraph3);
+  div.appendChild(button);
+
+  // ** add text content
+  title.textContent = (t);
+  date.textContent = (d);
+  paragraph1.textContent = (p1);
+  paragraph2.textContent = (p2);
+  paragraph3.textContent = (p3);
+
+  // ** Toggle "Article Open" on "Article"
+  button.addEventListener("click", function () {
+    div.classList.toggle("article-open")
+  })
+  //** return most parent div
+  return div;
+}
+
+let dataLoop = () => {
+  data.forEach()
+}
+
+
+// ** map data array 
+const mapData = data.map((data) => {
+  let dataInput = componentCreator(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph);
+  return dataInput
+})
+// ** create variable to append div to main document
+const parent = document.querySelector(".articles");
+// const dataInput = componentCreator(data[0].title, data[0].date, data[0].firstParagraph, data[0].secondParagraph, data[0].thirdParagraph);
+// parent.appendChild(dataInput);
+
+// ** for each on map array
+mapData.forEach((dataInput) => {
+  parent.appendChild(dataInput);
+})
+
+// ** append
