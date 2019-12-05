@@ -1,12 +1,12 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out"
 ];
 
 /* 
@@ -34,7 +34,7 @@ let menuItems = [
   
 */
 
-const menuComponent = (array) => {
+const menuComponent = array => {
   // ** create structure
   let menuDiv = document.createElement("div");
   let menuUl = document.createElement("ul");
@@ -43,25 +43,26 @@ const menuComponent = (array) => {
   // ** create class attributes
   menuDiv.classList.add("menuDiv");
   menuUl.classList.add("list");
-  menuLi.classList.add("menuItems")
-  menuButton.classList.add(".menu")
+  menuLi.classList.add(".menu");
+  menuButton.classList.add(".menu-button");
   // ** append to parent most element (div)
   menuDiv.appendChild(menuUl);
   menuDiv.appendChild(menuButton);
+  menuUl.appendChild(menuLi);
   // ** Itterate over the array to create a list item for each element in the array
-  array.forEach(index => {
-    menuLi.textContent = index;
-    menuUl.appendChild(menuLi);
+  array.forEach(content => {
+    menuLi.textContent = content;
   });
 
   // ** add a toggle to "menu--open" on the "menu"
-  menuButton.addEventListener("click", function () {
-    menuDiv.classList.toggle("menu--open");
+  menuButton.addEventListener("click", function() {
+    menuDiv.classList.toggle(".menu--open");
+    console.log("menu clicked");
   });
   return menuDiv;
-}
+};
 
-// ! define parent element 
-let menuGetter = document.getElementsByClassName(".header");
+// ! define parent element
+let menuGetter = document.querySelector(".header");
 
 menuGetter.appendChild(menuComponent(menuItems));
