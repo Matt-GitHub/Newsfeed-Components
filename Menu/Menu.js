@@ -59,34 +59,3 @@ const menuComponent = array => {
 let menuGetter = document.querySelector(".header");
 
 menuGetter.appendChild(menuComponent(menuItems));
-
-// const menuComponent = array => {
-//   // ** create structure
-//   let menuDiv = document.createElement("div");
-//   let menuUl = document.createElement("ul");
-//   let menuLi = document.createElement("li");
-//   let menuButton = document.querySelector(".menu-button");
-// ** create class attributes
-// menuDiv.classList.add("menuDiv");
-// menuUl.classList.add("list");
-// menuLi.classList.add(".menu");
-// ** append to parent most element (div)
-//   menuDiv.appendChild(menuUl);
-//   menuDiv.appendChild(menuButton);
-
-// ** Itterate over the array to create a list item for each element in the array
-// array.forEach(content => {
-//   menuLi.textContent = content;
-//   menuUl.appendChild(menuLi);
-// });
-
-// ** add a toggle to "menu--open" on the "menu"
-
-// menuButton.addEventListener("click", function() {
-//   menuDiv.classList.toggle(".menu--open");
-//   console.log("menu clicked");
-// });
-//   return menuDiv;
-// };
-
-// // ! define parent element
